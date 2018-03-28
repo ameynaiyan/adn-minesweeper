@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './view/main-menu/main-menu.component';
+import { HighScoresComponent } from './view/high-scores/high-scores.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    HighScoresComponent
   ],
   imports: [
     BrowserModule,
