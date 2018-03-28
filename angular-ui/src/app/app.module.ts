@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './view/main-menu/main-menu.component';
 import { HighScoresComponent } from './view/high-scores/high-scores.component';
+import { GameSceneComponent } from './view/game-scene/game-scene.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    HighScoresComponent
+    HighScoresComponent,
+    GameSceneComponent
   ],
   imports: [
     BrowserModule,
