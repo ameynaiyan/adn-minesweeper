@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="713e020f-91be-4802-800b-70b2f5e75fc6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/angular-ui/.angular-cli.json" afterPath="$PROJECT_DIR$/angular-ui/.angular-cli.json" />
-      <change beforePath="$PROJECT_DIR$/angular-ui/src/styles.scss" afterPath="$PROJECT_DIR$/angular-ui/src/styles.scss" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -134,12 +133,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522188897846</updated>
-      <workItem from="1522188904196" duration="948000" />
+      <workItem from="1522188904196" duration="1162000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="948000" />
+    <option name="totallyTimeSpent" value="1162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
