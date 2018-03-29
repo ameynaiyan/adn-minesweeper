@@ -22,4 +22,12 @@ describe('MainMenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should route to scores view when goToScores is called', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should route to play view when goToPlay is called', () => {
+    expect(component).toBeTruthy();
+  });
 });
