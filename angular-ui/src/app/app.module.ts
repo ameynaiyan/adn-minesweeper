@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MainMenuComponent } from './view/main-menu/main-menu.component';
 import { HighScoresComponent } from './view/high-scores/high-scores.component';
 import { GameSceneComponent } from './view/game-scene/game-scene.component';
+import { NewGameConfigComponent } from './view/new-game-config/new-game-config.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { GameSceneComponent } from './view/game-scene/game-scene.component';
     AppComponent,
     MainMenuComponent,
     HighScoresComponent,
-    GameSceneComponent
+    GameSceneComponent,
+    NewGameConfigComponent
   ],
   imports: [
     BrowserModule,
