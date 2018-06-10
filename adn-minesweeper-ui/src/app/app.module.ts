@@ -8,6 +8,7 @@ import { NewComponent } from './view/new/new.component';
 import { SceneComponent } from './view/scene/scene.component';
 import { SummaryComponent } from './view/summary/summary.component';
 import { ScoresComponent } from './view/scores/scores.component';
+import { BackdropComponent } from './common/backdrop/backdrop.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ScoresComponent } from './view/scores/scores.component';
     NewComponent,
     SceneComponent,
     SummaryComponent,
-    ScoresComponent
+    ScoresComponent,
+    BackdropComponent
   ],
   imports: [
     BrowserModule,
