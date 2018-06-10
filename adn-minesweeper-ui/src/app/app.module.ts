@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './view/main/main.component';
 import { NewComponent } from './view/new/new.component';
 import { SceneComponent } from './view/scene/scene.component';
+import { SummaryComponent } from './view/summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     NewComponent,
-    SceneComponent
+    SceneComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
