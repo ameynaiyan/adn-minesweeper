@@ -7,6 +7,7 @@ import { MainComponent } from './view/main/main.component';
 import { NewComponent } from './view/new/new.component';
 import { SceneComponent } from './view/scene/scene.component';
 import { SummaryComponent } from './view/summary/summary.component';
+import { ScoresComponent } from './view/scores/scores.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SummaryComponent } from './view/summary/summary.component';
     MainComponent,
     NewComponent,
     SceneComponent,
-    SummaryComponent
+    SummaryComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,
