@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+$c-white:#FFFFFF;
+$c-black:#000000;
+$c-accent:#FF0000;
+
+
+@font-face {
+    font-family: 'GB';
+    src: url('./assets/fonts/Gotham-Black.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT';
+    src: url('./assets/fonts/Gotham-Thin.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,body{
+	font-family:'GT', Helvetica, Arial;
+	font-size:16px;
+}
+
+.text-wrapper{
+    height:64px;
+    width:300px;
+    background:$c-white;
+    color:$c-black;
+    span{
+        line-height:64px;
+    }
+}
+
+.title-wrapper{
+    position:fixed;
+    top:40px;
+    font-size:2rem;
+    left:0px;
+    padding-right:15px;
+}
+
+.cta{
+    position:fixed;
+    right:-50px;
+    font-size:1.5rem;
+    padding-left:15px;
+    transition: 0.25s;
+    cursor:pointer;
+    &:hover{
+        right:0px;
+    }
+}
+
+.text-bold{
+    font-family:'GB';
+}
