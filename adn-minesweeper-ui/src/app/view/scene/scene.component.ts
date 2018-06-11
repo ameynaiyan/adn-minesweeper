@@ -23,7 +23,7 @@ export class SceneComponent implements OnInit {
 
   getDefaultGrid() {
     return {
-      rows:10,
+      rows:5,
       cols:10,
       cells:[],
     }
@@ -51,27 +51,32 @@ export class SceneComponent implements OnInit {
   initCells(){
     for(let i=0; i<this.grid.rows; i++){
       for(let j=0; j<this.grid.cols; j++){
-        this.grid.cells.push(this.createCell());
+        let newCell = this.createCell();
+        document.getElementById('game-grid').appendChild(newCell.el);
+        this.grid.cells.push(newCell);
       }
     }
+
   }
 
   createCell() {
-    let newCell = {
-      config:{},
-      el:{}
+    var newCell = {
+      config:new Cell(this.prob),
+      el:this.createDOMElement(newCell)
     };
-
-    newCell.config = new Cell(this.prob);
-    newCell.el = this.createDOMElement(newCell);
 
     return newCell;
   }
 
   createDOMElement(newCell:any) {
     let newEl = document.createElement('div');
+    newEl.className = 'cell-wrapper';
+    newEl.setAttribute('style','height:'+(500/this.grid.rows)+'px; width:'+(1000/this.grid.cols)+'px;');
+    let newSubEl = document.createElement('div');
+    newSubEl.className = 'cell d-flex flex-row justify-content-center align-items-center';
+    let cellText = document.createElement('span');
     let me = this;
-    newEl.addEventListener('mousedown',(e) => {
+    newSubEl.addEventListener('mousedown',(e) => {
       switch(e.which){
         case 1:
           if(!newCell.config.isDug()){
@@ -97,6 +102,8 @@ export class SceneComponent implements OnInit {
       }
       
     },false);
+    newSubEl.appendChild(cellText);
+    newEl.appendChild(newSubEl);
     return newEl;
   }
 
