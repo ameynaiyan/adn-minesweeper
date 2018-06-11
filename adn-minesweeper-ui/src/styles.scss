@@ -24,6 +24,16 @@ html,body{
 	font-size:16px;
 }
 
+.content-wrapper{
+    position:absolute;
+    top:120px;
+    left:0px;
+    width:100%;
+    * {
+        width:100%;
+    }
+}
+
 .text-wrapper{
     height:64px;
     width:300px;
@@ -56,4 +66,8 @@ html,body{
 
 .text-bold{
     font-family:'GB';
+}
+
+.text-white{
+    color: $c-white;
 }

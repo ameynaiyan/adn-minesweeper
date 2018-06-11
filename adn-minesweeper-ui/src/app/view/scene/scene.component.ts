@@ -18,6 +18,36 @@ export class SceneComponent implements OnInit {
   }
   
   restartGame() {
+    
   }
+
+  initGame() {
+
+  }
+
+  digArea() {
+
+  }
+
+  checkNeighbours() {
+
+  }
+
+  countNeighbouringMines() {
+
+  }
+
+  placeFlag() {
+
+  }
+
+  removeFlag() {
+
+  }
+
+  endGame() {
+
+  }
+
 
 }
