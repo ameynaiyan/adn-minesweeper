@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './view/main/main.component';
 import { NewComponent } from './view/new/new.component';
+import { AboutComponent } from './view/about/about.component';
 import { SceneComponent } from './view/scene/scene.component';
 import { ScoresComponent } from './view/scores/scores.component';
 import { SummaryComponent } from './view/summary/summary.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
 	{
 		path: 'summary', 
 		component: SummaryComponent
+	},
+	{
+		path: 'about', 
+		component: AboutComponent
 	},
 ];
 

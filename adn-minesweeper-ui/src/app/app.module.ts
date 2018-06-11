@@ -9,6 +9,7 @@ import { SceneComponent } from './view/scene/scene.component';
 import { SummaryComponent } from './view/summary/summary.component';
 import { ScoresComponent } from './view/scores/scores.component';
 import { BackdropComponent } from './common/backdrop/backdrop.component';
+import { AboutComponent } from './view/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BackdropComponent } from './common/backdrop/backdrop.component';
     SceneComponent,
     SummaryComponent,
     ScoresComponent,
-    BackdropComponent
+    BackdropComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
