@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scene',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SceneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToMain() {
+  	this.router.navigateByUrl('/');
+  }
+  
+  restartGame() {
   }
 
 }
