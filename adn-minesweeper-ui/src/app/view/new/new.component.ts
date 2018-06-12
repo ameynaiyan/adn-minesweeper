@@ -7,10 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
+  
+  difficulty: number;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.difficulty = 0;
+  }
 
   ngOnInit() {
+  }
+
+  setDifficulty(val:number) {
+    this.difficulty = val;
   }
 
   goToMain() {

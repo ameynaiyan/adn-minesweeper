@@ -5,3 +5,27 @@
 .cta-start{
 	bottom:40px;
 }
+
+.sub-title{
+	font-size:2rem;
+	color:#FFF;
+}
+
+.new-cta{
+	background:#FFF;
+	color:#000;
+	height:64px;
+	transform:translateY(0px);
+	width:100%;
+	transition:0.5s;
+	line-height:64px;
+	font-size:1.5rem;
+	&:hover{
+		transform:translateY(-10px);
+		cursor:pointer;
+	}
+	&.active{
+		color:#F00;
+	}
+}
+

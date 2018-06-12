@@ -2,6 +2,35 @@
 	<span>NEW GAME</span>
 </div>
 
+<div class="content-wrapper">
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 text-center sub-title">
+				SELECT DIFFICULTY
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':difficulty==0}" (click)="setDifficulty(0)">EASY</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':difficulty==1}" (click)="setDifficulty(1)">MEDIUM</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':difficulty==2}" (click)="setDifficulty(2)">HARD</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="text-wrapper cta cta-main text-left" (click)="goToMain();">
 	<span>BACK</span>
 </div>
