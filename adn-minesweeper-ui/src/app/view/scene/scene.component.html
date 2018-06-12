@@ -7,7 +7,15 @@
 </div>
 
 <div class="grid-wrapper d-flex flex-row justify-content-center align-items-center">
-	<div id="game-grid" class="grid"></div>
+	<div id="game-grid" class="grid">
+
+		<div class="cell-wrapper" *ngFor="let cell of grid.cells" [ngStyle]="{ 'height':(500/grid.rows)+'px', 'width':(1000/grid.cols)+'px' }">
+			<div class="cell d-flex flex-row justify-content-center align-items-center" (mousedown)="cellClicked($event,cell)">
+				<span class="cell-text">{{cell.count}}</span>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 <div class="text-wrapper cta cta-menu text-left" (click)="goToMain();">

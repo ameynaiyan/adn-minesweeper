@@ -2,13 +2,17 @@ export class Cell{
 	private opened:boolean;
 	private flagged:boolean;
 	private mine: boolean;
-	private count: number;
+	public count: number;
+	public height: number;
+	public width: number;
 
-	constructor(private prob: number) { 
+	constructor(private prob: number,private grid:any) { 
 		this.opened = false;
 		this.flagged = false;
 		this.count = 0;
 		this.mine = this.assignMine(prob);
+		this.height = 1000/grid.rows;
+		this.width = 500/grid.cols;
   	}
 
   	assignMine(prob) {

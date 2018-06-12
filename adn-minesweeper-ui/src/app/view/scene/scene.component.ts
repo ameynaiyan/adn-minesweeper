@@ -40,6 +40,7 @@ export class SceneComponent implements OnInit {
   restartGame() {
     this.resetClock();
     this.grid = this.getDefaultGrid();
+    this.initCells();
   }
 
   initGame() {
@@ -52,7 +53,7 @@ export class SceneComponent implements OnInit {
     for(let i=0; i<this.grid.rows; i++){
       for(let j=0; j<this.grid.cols; j++){
         let newCell = this.createCell();
-        document.getElementById('game-grid').appendChild(newCell.el);
+        //document.getElementById('game-grid').appendChild(newCell.el);
         this.grid.cells.push(newCell);
       }
     }
@@ -60,12 +61,12 @@ export class SceneComponent implements OnInit {
   }
 
   createCell() {
-    var newCell = {
+    /*var newCell = {
       config:new Cell(this.prob),
       el:this.createDOMElement(newCell)
-    };
+    };*/
 
-    return newCell;
+    return new Cell(this.prob,this.grid);
   }
 
   createDOMElement(newCell:any) {
@@ -105,6 +106,33 @@ export class SceneComponent implements OnInit {
     newSubEl.appendChild(cellText);
     newEl.appendChild(newSubEl);
     return newEl;
+  }
+
+  cellClicked(e,cell) {
+
+    switch(e.which){
+      case 1:
+        if(!cell.isDug()){
+          cell.dig();
+          if(cell.isMinePresent()){
+            this.endGame();
+          }else{
+            let count = this.countNeighbouringMines();
+            cell.setCount(count);
+            if(count == 0){
+              this.checkNeighbours();
+            }
+          }
+        }
+        break;
+      case 3:
+        if(cell.isFlagged()){
+          cell.setFlag(false);
+        }else{
+          cell.setFlag(true);
+        }
+        break;
+      }
   }
 
   digArea() {

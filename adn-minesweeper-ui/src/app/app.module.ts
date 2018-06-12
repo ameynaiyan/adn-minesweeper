@@ -10,7 +10,6 @@ import { SummaryComponent } from './view/summary/summary.component';
 import { ScoresComponent } from './view/scores/scores.component';
 import { BackdropComponent } from './common/backdrop/backdrop.component';
 import { AboutComponent } from './view/about/about.component';
-import { CellComponent } from './common/cell/cell.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { CellComponent } from './common/cell/cell.component';
     SummaryComponent,
     ScoresComponent,
     BackdropComponent,
-    AboutComponent,
-    CellComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule,
