@@ -14,7 +14,7 @@ export class SceneComponent implements OnInit {
   private prob: number;
 
   constructor(private router: Router) { 
-    this.prob = 0.5;
+    this.prob = 0.1;
   }
 
   ngOnInit() {
@@ -23,8 +23,8 @@ export class SceneComponent implements OnInit {
 
   getDefaultGrid() {
     return {
-      rows:5,
-      cols:10,
+      rows:10,
+      cols:20,
       cells:[],
     }
   }
@@ -109,7 +109,6 @@ export class SceneComponent implements OnInit {
   }
 
   cellClicked(e,cell) {
-
     switch(e.which){
       case 1:
         if(!cell.isDug()){
@@ -132,11 +131,7 @@ export class SceneComponent implements OnInit {
           cell.setFlag(true);
         }
         break;
-      }
-  }
-
-  digArea() {
-
+    }
   }
 
   checkNeighbours() {

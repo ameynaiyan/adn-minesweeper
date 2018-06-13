@@ -16,7 +16,12 @@ export class Cell{
   	}
 
   	assignMine(prob) {
-  		return true;
+      var num=Math.random();
+      if(num<prob){
+        return true;
+      }else{
+        return false;
+      }
   	}
 
   	dig() {

@@ -25,6 +25,48 @@
 				background:#FFF;
 				height:100%;
 				color:#000;
+				&.dug{
+					background:#555;
+					color:#AAA;
+				}
+				.cell-text{
+					display:block;
+				}
+				.cell-img{
+					.fa-flag{
+						display:none;
+					}
+					.fa-bomb{
+						display:none;
+					}
+				}
+				&.mine{
+					.cell-text{
+						display:none;
+					}
+					.cell-img{
+						.fa-flag{
+							display:none;
+						}
+						.fa-bomb{
+							display:block;
+						}
+					}
+				}
+				&.flag{
+					.cell-text{
+						display:none;
+					}
+					.cell-img{
+						.fa-flag{
+							display:block;
+						}
+						.fa-bomb{
+							display:none;
+						}
+					}
+				}
+
 			}
 		}
 	}
