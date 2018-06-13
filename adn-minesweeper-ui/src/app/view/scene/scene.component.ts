@@ -73,25 +73,26 @@ export class SceneComponent implements OnInit {
 
 
   cellClicked(e,cell) {
-    switch(e.which){
-      case 1:
-        if(!cell.isDug()){
+    if(!cell.isDug()){
+      switch(e.which){
+        case 1:
           cell.dig();
           if(cell.isMinePresent()){
             this.endGame();
           }else{
             this.scan(cell);
           }
-        }
-        break;
-      case 3:
-        if(cell.isFlagged()){
-          cell.setFlag(false);
-        }else{
-          cell.setFlag(true);
-        }
-        break;
+          break;
+        case 3:
+          if(cell.isFlagged()){
+            cell.setFlag(false);
+          }else{
+            cell.setFlag(true);
+          }
+          break;
+      }
     }
+    e.stopPropogation();
   }
 
   scan(cell) {
