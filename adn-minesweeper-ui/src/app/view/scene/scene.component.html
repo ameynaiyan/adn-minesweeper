@@ -8,17 +8,17 @@
 
 <div class="grid-wrapper d-flex flex-row justify-content-center align-items-center">
 	<div id="game-grid" class="grid">
-
-		<div class="cell-wrapper" *ngFor="let cell of grid.cells" [ngStyle]="{ 'height':(500/grid.rows)+'px', 'width':(1000/grid.cols)+'px' }">
-			<div class="cell d-flex flex-row justify-content-center align-items-center" [ngStyle]="{ 'font-size':(15/grid.rows)+'rem' }" (mousedown)="cellClicked($event,cell)" [ngClass]="{'dug': cell.opened, 'mine': cell.mine, 'flag': cell.flagged}">
-				<span class="cell-text text-bold">{{cell.count}}</span>
-				<div class="cell-img">
-					<i class="fas fa-bomb"></i>
-					<i class="fas fa-flag"></i>
+		<div *ngFor="let row of grid.cells">
+			<div class="cell-wrapper" *ngFor="let cell of row" (mousedown)="cellClicked($event,cell)" [ngStyle]="{ 'height':(500/grid.rows)+'px', 'width':(1000/grid.cols)+'px' }">
+				<div class="cell d-flex flex-row justify-content-center align-items-center" [ngStyle]="{ 'font-size':(15/grid.rows)+'rem' }" (mousedown)="cellClicked($event,cell)" [ngClass]="{'dug': cell.opened, 'mine': cell.mine, 'flag': cell.flagged}">
+					<span class="cell-text text-bold">{{cell.count}}</span>
+					<div class="cell-img">
+						<i class="fas fa-bomb"></i>
+						<i class="fas fa-flag"></i>
+					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 

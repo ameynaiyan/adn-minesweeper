@@ -28,9 +28,27 @@
 				&.dug{
 					background:#555;
 					color:#AAA;
+					.cell-text{
+						display:block;
+					}
+					&.mine{
+						background:#F00;
+						color:#FFF;
+						.cell-text{
+							display:none;
+						}
+						.cell-img{
+							.fa-flag{
+								display:none;
+							}
+							.fa-bomb{
+								display:block;
+							}
+						}
+					}
 				}
 				.cell-text{
-					display:block;
+					display:none;
 				}
 				.cell-img{
 					.fa-flag{
@@ -41,15 +59,17 @@
 					}
 				}
 				&.mine{
-					.cell-text{
-						display:none;
-					}
-					.cell-img{
-						.fa-flag{
+					&.finish{
+						.cell-text{
 							display:none;
 						}
-						.fa-bomb{
-							display:block;
+						.cell-img{
+							.fa-flag{
+								display:none;
+							}
+							.fa-bomb{
+								display:block;
+							}
 						}
 					}
 				}

@@ -12,9 +12,11 @@ export class SceneComponent implements OnInit {
   private grid: any;
   private clock: number;
   private prob: number;
+  private cellID: number;
 
   constructor(private router: Router) { 
     this.prob = 0.1;
+    this.cellID = 0;
   }
 
   ngOnInit() {
@@ -51,62 +53,24 @@ export class SceneComponent implements OnInit {
 
   initCells(){
     for(let i=0; i<this.grid.rows; i++){
+      let row = [];
       for(let j=0; j<this.grid.cols; j++){
-        let newCell = this.createCell();
-        //document.getElementById('game-grid').appendChild(newCell.el);
-        this.grid.cells.push(newCell);
+        row.push(this.createCell(j,i));
       }
+      this.grid.cells.push(row);
     }
 
+    if(this.grid.cells[0][0].isMinePresent()){
+      this.restartGame();
+    }else{
+      return;
+    }
   }
 
-  createCell() {
-    /*var newCell = {
-      config:new Cell(this.prob),
-      el:this.createDOMElement(newCell)
-    };*/
-
-    return new Cell(this.prob,this.grid);
+  createCell(i,j) {
+    return new Cell(this.prob,this.grid,i+'-'+j);
   }
 
-  createDOMElement(newCell:any) {
-    let newEl = document.createElement('div');
-    newEl.className = 'cell-wrapper';
-    newEl.setAttribute('style','height:'+(500/this.grid.rows)+'px; width:'+(1000/this.grid.cols)+'px;');
-    let newSubEl = document.createElement('div');
-    newSubEl.className = 'cell d-flex flex-row justify-content-center align-items-center';
-    let cellText = document.createElement('span');
-    let me = this;
-    newSubEl.addEventListener('mousedown',(e) => {
-      switch(e.which){
-        case 1:
-          if(!newCell.config.isDug()){
-            newCell.config.dig();
-            if(newCell.config.isMinePresent()){
-              me.endGame();
-            }else{
-              let count = me.countNeighbouringMines();
-              newCell.config.setCount(count);
-              if(count == 0){
-                me.checkNeighbours();
-              }
-            }
-          }
-          break;
-        case 3:
-          if(newCell.config.isFlagged){
-            newCell.config.setFlag(false);
-          }else{
-            newCell.config.setFlag(true);
-          }
-          break;
-      }
-      
-    },false);
-    newSubEl.appendChild(cellText);
-    newEl.appendChild(newSubEl);
-    return newEl;
-  }
 
   cellClicked(e,cell) {
     switch(e.which){
@@ -116,11 +80,7 @@ export class SceneComponent implements OnInit {
           if(cell.isMinePresent()){
             this.endGame();
           }else{
-            let count = this.countNeighbouringMines();
-            cell.setCount(count);
-            if(count == 0){
-              this.checkNeighbours();
-            }
+            this.scan(cell);
           }
         }
         break;
@@ -134,25 +94,47 @@ export class SceneComponent implements OnInit {
     }
   }
 
-  checkNeighbours() {
-    for(let i=0;i<8;i++){
+  scan(cell) {
+    var count = this.countNeighbouringMines(cell);
+    if(count == 0){
 
+      for(let i=-1;i<=1;i++){
+        for(let j=-1;j<=1;j++){
+          if(cell.yPos+i>=0 && cell.xPos+j>=0 && cell.yPos+i<this.grid.rows && cell.xPos+j<this.grid.cols && this.grid.cells[cell.yPos+i][cell.xPos+j] && !this.grid.cells[cell.yPos+i][cell.xPos+j].isDug()){
+            cell.dig();
+            this.scan(this.grid.cells[cell.yPos+i][cell.xPos+j]);
+          }
+        }
+      }
+
+      cell.setCount('');
+      return;
+    }else{
+      cell.dig();
+      cell.setCount(count);
+      return;
     }
   }
 
-  countNeighbouringMines() {
-    return 0;
-  }
+  countNeighbouringMines(cell) {
+    var count = 0;
 
-  placeFlag() {
+    for(let i=-1;i<=1;i++){
+      for(let j=-1;j<=1;j++){
+        if(cell.yPos+i>=0 && cell.xPos+j>=0 && cell.yPos+i<this.grid.rows && cell.xPos+j<this.grid.cols && this.grid.cells[cell.yPos+i][cell.xPos+j] && this.grid.cells[cell.yPos+i][cell.xPos+j].isMinePresent()){
+          count++;
+        }
+      }
+    }
 
-  }
-
-  removeFlag() {
-
+    return count;
   }
 
   endGame() {
+
+  }
+
+  goToSummary(){
 
   }
 
