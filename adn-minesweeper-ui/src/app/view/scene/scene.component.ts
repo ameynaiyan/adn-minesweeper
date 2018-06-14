@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cell } from '../../common/cell/cell'
+import { Cell } from '../../common/cell/cell';
+import { GlobalConfigService } from '../../global-config.service';
 
 @Component({
   selector: 'app-scene',
@@ -12,21 +13,54 @@ export class SceneComponent implements OnInit {
   private grid: any;
   private clock: number;
   private prob: number;
-  private cellID: number;
+  private rows:number;
+  private cols:number;
+  gc:GlobalConfigService;
 
-  constructor(private router: Router) { 
-    this.prob = 0.1;
-    this.cellID = 0;
+  constructor(private router: Router, gc:GlobalConfigService) { 
+    this.gc = gc;
+    switch(gc.difficulty){
+      case 0:
+        this.prob = 0.06;
+        break;
+      case 1:
+        this.prob = 0.1;
+        break;
+      case 2:
+        this.prob = 0.15;
+        break;
+    }
+    
+    switch(gc.gridSize){
+      case 0:
+        this.rows = 5;
+        this.cols = 10;
+        break;
+      case 1:
+        this.rows = 10;
+        this.cols = 20;
+        break;
+      case 2:
+        this.rows = 15;
+        this.cols = 30;
+        break;
+    }
   }
 
   ngOnInit() {
+    if(this.gc.gameInProgress==false){
+      this.goToMain();
+    }
     this.initGame();
   }
 
   getDefaultGrid() {
+    var rows;
+    var cols;
+
     return {
-      rows:10,
-      cols:20,
+      rows:this.rows,
+      cols:this.cols,
       cells:[],
     }
   }

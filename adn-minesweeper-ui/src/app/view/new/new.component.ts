@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalConfigService } from '../../global-config.service';
 
 @Component({
   selector: 'app-new',
@@ -9,9 +10,13 @@ import { Router } from '@angular/router';
 export class NewComponent implements OnInit {
   
   difficulty: number;
+  gridSize: number;
+  gc:GlobalConfigService;
 
-  constructor(private router: Router) {
-    this.difficulty = 0;
+  constructor(private router: Router, gc:GlobalConfigService) {
+    this.difficulty = gc.difficulty;
+    this.gridSize = gc.gridSize;
+    this.gc = gc;
   }
 
   ngOnInit() {
@@ -19,6 +24,12 @@ export class NewComponent implements OnInit {
 
   setDifficulty(val:number) {
     this.difficulty = val;
+    this.gc.difficulty = val;
+  }
+
+  setGridSize(val:number) {
+    this.gridSize = val;
+    this.gc.gridSize = val;
   }
 
   goToMain() {
@@ -26,6 +37,7 @@ export class NewComponent implements OnInit {
   }
   
   startGame() {
+    this.gc.gameInProgress = true;
   	this.router.navigateByUrl('/play');
   }
 

@@ -11,6 +11,8 @@ import { ScoresComponent } from './view/scores/scores.component';
 import { BackdropComponent } from './common/backdrop/backdrop.component';
 import { AboutComponent } from './view/about/about.component';
 
+import { GlobalConfigService } from './global-config.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import { AboutComponent } from './view/about/about.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GlobalConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

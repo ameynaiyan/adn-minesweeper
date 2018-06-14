@@ -5,14 +5,11 @@
 <div class="content-wrapper">
 	<div class="container">
 		<br>
-		<br>
-		<br>
 		<div class="row">
 			<div class="col-xs-12 text-center sub-title">
 				SELECT DIFFICULTY
 			</div>
 		</div>
-		<br>
 		<br>
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
@@ -26,6 +23,29 @@
 			<div class="col-xs-12 col-md-4">
 				<br>
 				<div class="new-cta text-center text-bold" [ngClass]="{'active':difficulty==2}" (click)="setDifficulty(2)">HARD</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 text-center sub-title">
+				SELECT GRID SIZE
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':gridSize==0}" (click)="setGridSize(0)">SMALL</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':gridSize==1}" (click)="setGridSize(1)">MEDIUM</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<br>
+				<div class="new-cta text-center text-bold" [ngClass]="{'active':gridSize==2}" (click)="setGridSize(2)">LARGE</div>
 			</div>
 		</div>
 	</div>
