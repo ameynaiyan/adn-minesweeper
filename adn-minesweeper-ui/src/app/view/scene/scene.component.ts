@@ -16,6 +16,7 @@ export class SceneComponent implements OnInit {
   private rows:number;
   private cols:number;
   private timer:any;
+  private win:boolean;
   private gameOver:boolean;
   gc:GlobalConfigService;
 
@@ -81,6 +82,8 @@ export class SceneComponent implements OnInit {
   
   restartGame() {
     this.resetClock();
+    this.win=false;
+    this.gc.summary = new Object();
     this.gameOver = false;
     this.grid = this.getDefaultGrid();
     this.initCells();
@@ -88,6 +91,8 @@ export class SceneComponent implements OnInit {
 
   initGame() {
     this.resetClock();
+    this.win=false;
+    this.gc.summary = new Object();
     this.grid = this.getDefaultGrid();
     this.initCells();
   }
@@ -134,6 +139,11 @@ export class SceneComponent implements OnInit {
             break;
         }
       }
+      if(this.checkIfWon()){
+        this.win = true;
+        clearInterval(this.timer);
+        this.gameOver = true;
+      }
     }
   }
 
@@ -173,11 +183,28 @@ export class SceneComponent implements OnInit {
     return count;
   }
 
+  checkIfWon(){
+    for(let i=0;i<this.grid.rows;i++){
+      for(let j=0;j<this.grid.cols;j++){
+        if(!this.grid.cells[i][j].isMinePresent() && !this.grid.cells[i][j].isDug()){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
   explode(){
+    clearInterval(this.timer);
     this.gameOver = true;
   }
 
   goToSummary(){
+    this.gc.summary = {
+      timeTaken:this.clock,
+      winStatus:this.win,
+      difficulty:this.gc.difficulty
+    };
     this.router.navigateByUrl('/summary');
   }
 

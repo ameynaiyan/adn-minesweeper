@@ -6,6 +6,21 @@
 	bottom:40px;
 }
 
+.center-text{
+	position:fixed;
+	z-index:2;
+	left:0px;
+	width:100%;
+	font-size:3rem;
+	color:#FFF;
+	&.face{
+		top:40px;
+	}
+	&.game-over-text{
+		bottom:40px;
+	}
+}
+
 .cta{
 	&.cta-continue{
 	    position:fixed;

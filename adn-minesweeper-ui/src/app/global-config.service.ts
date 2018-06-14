@@ -9,6 +9,7 @@ export class GlobalConfigService {
 	public gridSize:number;
 	public timeTaken:number;
 	public gameInProgress:boolean;
+	public summary:any;
 
 
 	constructor() { 
@@ -16,5 +17,6 @@ export class GlobalConfigService {
 		this.gridSize = 0;
 		this.timeTaken = 0;
 		this.gameInProgress = false;
+		this.summary = new Object();
 	}
 }

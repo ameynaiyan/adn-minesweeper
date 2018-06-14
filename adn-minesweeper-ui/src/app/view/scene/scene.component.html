@@ -10,6 +10,12 @@
 	<span>CONTINUE</span>
 </div>
 
+<div class="face text-center center-text">
+	<i class="far fa-smile" *ngIf="!gameOver"></i>
+	<i class="far fa-frown" *ngIf="!win && gameOver"></i>
+	<i class="far fa-thumbs-up" *ngIf="win && gameOver"></i>
+</div>
+
 <div class="grid-wrapper d-flex flex-row justify-content-center align-items-center">
 	<div id="game-grid" class="grid">
 		<div *ngFor="let row of grid.cells">
@@ -24,6 +30,10 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="game-over-text text-center center-text">
+	<span *ngIf="gameOver">GAME OVER</span>
 </div>
 
 <div class="text-wrapper cta clock text-right text-bold">
