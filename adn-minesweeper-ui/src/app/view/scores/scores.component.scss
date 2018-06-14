@@ -1,3 +1,45 @@
 .cta-back{
 	bottom:40px;
 }
+
+.scores-wrapper{
+	height:100vh;
+}
+
+
+.cta{
+	&.cta-clear{
+	    position:fixed;
+	    bottom:40px;
+	    left:-50px;
+	    z-index:3;
+	    font-size:1.5rem;
+	    padding-right:15px;
+	    transition: 0.25s;
+	    cursor:pointer;
+	    &:hover{
+	        left:0px;
+	    }
+	}
+}
+
+.rec{
+	height:64px;
+	margin-bottom:8px;
+	margin-right:8px;
+	padding:0px 30px;
+	font-size:2rem;
+	background:#006565;
+	line-height:64px;
+	z-index:2;
+	color:#FFFFFF;
+	&.rec-index{
+		width:64px;
+	}
+	&.rec-name{
+		width:320px;
+	}
+	&.rec-score{
+		width:128px;
+	}
+}
