@@ -15,6 +15,7 @@ export class SceneComponent implements OnInit {
   private prob: number;
   private rows:number;
   private cols:number;
+  private gameOver:boolean;
   gc:GlobalConfigService;
 
   constructor(private router: Router, gc:GlobalConfigService) { 
@@ -75,6 +76,7 @@ export class SceneComponent implements OnInit {
   
   restartGame() {
     this.resetClock();
+    this.gameOver = false;
     this.grid = this.getDefaultGrid();
     this.initCells();
   }
@@ -107,26 +109,27 @@ export class SceneComponent implements OnInit {
 
 
   cellClicked(e,cell) {
-    if(!cell.isDug()){
-      switch(e.which){
-        case 1:
-          cell.dig();
-          if(cell.isMinePresent()){
-            this.endGame();
-          }else{
-            this.scan(cell);
-          }
-          break;
-        case 3:
-          if(cell.isFlagged()){
-            cell.setFlag(false);
-          }else{
-            cell.setFlag(true);
-          }
-          break;
+    if(!this.gameOver){
+      if(!cell.isDug()){
+        switch(e.which){
+          case 1:
+            cell.dig();
+            if(cell.isMinePresent()){
+              this.explode();
+            }else{
+              this.scan(cell);
+            }
+            break;
+          case 3:
+            if(cell.isFlagged()){
+              cell.setFlag(false);
+            }else{
+              cell.setFlag(true);
+            }
+            break;
+        }
       }
     }
-    e.stopPropogation();
   }
 
   scan(cell) {
@@ -165,12 +168,12 @@ export class SceneComponent implements OnInit {
     return count;
   }
 
-  endGame() {
-
+  explode(){
+    this.gameOver = true;
   }
 
   goToSummary(){
-
+    this.router.navigateByUrl('/summary');
   }
 
 

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 $c-white:#FFFFFF;
-$c-black:#000000;
-$c-accent:#FF0000;
+$c-black:#00B5B5;
+$c-accent:#006565;
 
 
 @font-face {
@@ -71,4 +71,10 @@ html,body{
 
 .text-white{
     color: $c-white;
+}
+
+@media (max-width:991px){
+    body{
+        display:none;
+    }
 }

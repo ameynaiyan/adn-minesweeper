@@ -6,6 +6,22 @@
 	bottom:40px;
 }
 
+.cta{
+	&.cta-continue{
+	    position:fixed;
+	    top:40px;
+	    left:-50px;
+	    z-index:3;
+	    font-size:1.5rem;
+	    padding-right:15px;
+	    transition: 0.25s;
+	    cursor:pointer;
+	    &:hover{
+	        left:0px;
+	    }
+	}
+}
+
 .grid-wrapper{
 	position:fixed;
 	top:0px;
@@ -24,16 +40,16 @@
 			.cell{
 				background:#FFF;
 				height:100%;
-				color:#000;
+				color:#006565;
 				&.dug{
-					background:#555;
-					color:#AAA;
+					background:#006565;
+					color:#00B5B5;
 					.cell-text{
 						display:block;
 					}
 					&.mine{
-						background:#F00;
-						color:#FFF;
+						background:#555;
+						color:#00B5B5;
 						.cell-text{
 							display:none;
 						}

@@ -274,7 +274,10 @@ export class BackdropComponent implements AfterViewInit {
 	// Render
 	render(){
 
+		this.ctx.fillStyle = 'rgba(0,181,181,1)';
+
 	    this.ctx.clearRect(0, 0, this.can_w, this.can_h);
+	    this.ctx.fillRect(0, 0, this.can_w, this.can_h);
 	    
 	    this.renderBalls();
 	    
