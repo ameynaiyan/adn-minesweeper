@@ -15,6 +15,7 @@ export class SceneComponent implements OnInit {
   private prob: number;
   private rows:number;
   private cols:number;
+  private timer:any;
   private gameOver:boolean;
   gc:GlobalConfigService;
 
@@ -67,7 +68,11 @@ export class SceneComponent implements OnInit {
   }
 
   resetClock(){
+    clearInterval(this.timer);
     this.clock = 0;
+    this.timer = setInterval(() => {
+      this.clock++;
+    },1000);
   }
 
   goToMain() {

@@ -20,6 +20,14 @@
 	        left:0px;
 	    }
 	}
+	&.clock{
+	    position:fixed;
+	    bottom:40px;
+	    left:-50px;
+	    z-index:3;
+	    font-size:1.5rem;
+	    padding-right:15px;
+	}
 }
 
 .grid-wrapper{
