@@ -63,6 +63,8 @@ export class SummaryComponent implements OnInit {
 
     if(maxCandidate){
       this.newHSMessage = true;
+    }else{
+      this.newHSMessage = false;
     }
   }
 
@@ -71,8 +73,8 @@ export class SummaryComponent implements OnInit {
       for(let j=i; j<arr.length;j++){
         if(i!=j && arr[i].score>arr[j].score){
           var tmp = arr[i];
-          arr[j] = arr[i];
-          arr[i] = tmp;
+          arr[i] = arr[j];
+          arr[j] = tmp;
         }
       }
     }
