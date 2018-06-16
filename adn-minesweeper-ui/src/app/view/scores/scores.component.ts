@@ -11,7 +11,10 @@ export class ScoresComponent implements OnInit {
 
   ls:any;
   highScores:any;
-  constructor(private router: Router) { }
+  clearMessage:boolean;
+  constructor(private router: Router) { 
+  	this.clearMessage = false;
+  }
 
   ngOnInit() {
   	if(localStorage.getItem("adn-minesweeper")==null){
@@ -24,9 +27,11 @@ export class ScoresComponent implements OnInit {
       this.ls = JSON.parse(localStorage.getItem("adn-minesweeper"));
     }
 
-    var sortedArray = _.sortBy(this.ls.scores, function(sortedScores) {
-	  return sortedScores;
-	});
+    //var sortedArray = _.sortBy(this.ls.scores, (sortedScores) => {
+	 // return sortedScores;
+	//});
+
+	var sortedArray = this.sortScores(this.ls.scores);
 
 	this.highScores = [];
 
@@ -44,7 +49,29 @@ export class ScoresComponent implements OnInit {
     }
   }
 
+  sortScores(arr) {
+  	for(let i=0; i<arr.length;i++){
+  		for(let j=i; j<arr.length;j++){
+	  		if(i!=j && arr[i].score>arr[j].score){
+	  			var tmp = arr[i];
+	  			arr[j] = arr[i];
+	  			arr[i] = tmp;
+	  		}
+	  	}
+  	}
+  	return arr;
+  }
+
+  showClearMessage() {
+  	this.clearMessage=true;
+  }
+
+  hideClearMessage() {
+  	this.clearMessage=false;
+  }
+
   clearScores() {
+  	this.hideClearMessage();
   	this.highScores = [];
   	for(let i=0;i<5;i++){
     	this.highScores.push(

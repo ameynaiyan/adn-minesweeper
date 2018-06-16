@@ -6,6 +6,23 @@
 	<span>RESTART GAME</span>
 </div>
 
+<div class="d-flex flex-column justify-content-center align-items-center scores-wrapper" *ngIf="!newHSMessage">
+	<div class="d-flex flex-row justify-content-center align-items-center" *ngFor = "let record of highScores; let i = index">
+		<div class="rec rec-index text-center">{{i+1}}</div>
+		<div class="rec rec-name text-left">{{record.name}}</div>
+		<div class="rec rec-score text-center">{{record.score}}</div>
+	</div>
+</div>
+
+<div class="d-flex flex-column justify-content-center align-items-center msg-wrapper" *ngIf="newHSMessage">
+	<h1>ENTER YOUR NAME</h1>
+	<br>
+	<div class="d-flex flex-row justify-content-center align-items-center">
+		<input class="input-field" type="text" name="newHS" [(ngModel)]="newHSName">
+		<div class="msg-cta text-center text-bold" (click)="submitNewHSName()">OK</div>
+	</div>
+</div>
+
 <div class="text-wrapper cta cta-main text-left" (click)="goToMain();">
 	<span>BACK TO MENU</span>
 </div>

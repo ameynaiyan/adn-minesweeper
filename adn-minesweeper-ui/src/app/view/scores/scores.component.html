@@ -2,7 +2,7 @@
 	<span>HIGH SCORES</span>
 </div>
 
-<div class="d-flex flex-column justify-content-center align-items-center scores-wrapper">
+<div class="d-flex flex-column justify-content-center align-items-center scores-wrapper" *ngIf="!clearMessage">
 	<div class="d-flex flex-row justify-content-center align-items-center" *ngFor = "let record of highScores; let i = index">
 		<div class="rec rec-index text-center">{{i+1}}</div>
 		<div class="rec rec-name text-left">{{record.name}}</div>
@@ -10,7 +10,16 @@
 	</div>
 </div>
 
-<div class="text-wrapper cta cta-clear text-right" (click)="clearScores();">
+<div class="d-flex flex-column justify-content-center align-items-center msg-wrapper" *ngIf="clearMessage">
+	<h1>ARE YOU SURE?</h1>
+	<br>
+	<div class="d-flex flex-row justify-content-center align-items-center">
+		<div class="msg-cta text-center text-bold mr-3" (click)="clearScores()">YES</div>
+		<div class="msg-cta text-center text-bold" (click)="hideClearMessage()">NO</div>
+	</div>
+</div>
+
+<div class="text-wrapper cta cta-clear text-right" (click)="showClearMessage()">
 	<span>CLEAR SCORES</span>
 </div>
 
